@@ -75,3 +75,14 @@ val String.asColor: Int?
     } catch (e: java.lang.IllegalArgumentException) {
         null
     }
+
+
+fun String.asHtml(): Spanned {
+    if (!isNullOrEmpty()) {
+        if (contains("\n"))
+            return HtmlCompat
+                .fromHtml(replace("\n", "<br/>"), HtmlCompat.FROM_HTML_MODE_LEGACY)
+    }
+    return HtmlCompat
+        .fromHtml(this, HtmlCompat.FROM_HTML_MODE_LEGACY)
+}

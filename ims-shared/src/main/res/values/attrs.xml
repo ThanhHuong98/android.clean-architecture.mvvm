@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="core_title" format="string" />
+    <attr name="core_message" format="string" />
+    <attr name="core_icon" format="reference" />
+    <declare-styleable name="SharedToolBar">
+        <attr name="core_layoutType" format="enum">
+            <enum name="center" value="0" />
+            <enum name="left" value="1" />
+        </attr>
+        <attr name="core_title" />
+        <attr name="core_fontFamily" format="string" />
+        <attr name="core_titleSize" format="dimension" />
+        <attr name="core_titleColor" format="color" />
+        <attr name="core_background" format="color|reference" />
+        <attr name="core_drawableLeft" format="reference" />
+        <attr name="core_drawableRight" format="reference" />
+    </declare-styleable>
+</resources>

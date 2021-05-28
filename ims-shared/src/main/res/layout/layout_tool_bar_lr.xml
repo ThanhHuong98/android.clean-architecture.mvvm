@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?actionBarSize"
+    android:orientation="horizontal">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tbTextTitle"
+        style="@style/IMS.Text.Medium"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1"
+        android:maxLines="2"
+        android:textSize="@dimen/text_size_large"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/tbImageLeft"
+        style="@style/IMS.Theme.Selectable"
+        android:layout_width="?actionBarSize"
+        android:layout_height="?actionBarSize"
+        android:layout_gravity="center"
+        android:padding="@dimen/margin_medium" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/tbImageRight"
+        style="@style/IMS.Theme.Selectable"
+        android:layout_width="?actionBarSize"
+        android:layout_height="?actionBarSize"
+        android:padding="@dimen/margin_medium" />
+
+</LinearLayout>
