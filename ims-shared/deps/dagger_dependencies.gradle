@@ -1,0 +1,10 @@
+// apply plugin: 'dagger.hilt.android.plugin'
+dependencies {
+    // Dagger
+    api "com.google.dagger:dagger-android-support:2.33"
+    kapt "com.google.dagger:dagger-android-processor:2.33"
+    kapt "com.google.dagger:dagger-compiler:2.33"
+
+    // implementation "com.google.dagger:hilt-android:2.33-beta"
+    // kapt "com.google.dagger:hilt-compiler:2.33-beta"
+}

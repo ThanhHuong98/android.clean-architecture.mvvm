@@ -1,0 +1,17 @@
+dependencies {
+
+    // Retrofit using RxJava2, OkHttp, OkHttp logging interceptor, GSon
+    api deps.retrofit.gson
+    api deps.retrofit.runtime
+    api deps.retrofit.okhttp_logging_interceptor
+    api deps.rx_adapter_java
+    api deps.rxjava3
+    api deps.rxandroid3
+
+    // DEBUG: Facebook stetho
+    api 'com.facebook.stetho:stetho:1.5.1'
+    api('com.facebook.stetho:stetho-okhttp3:1.5.1') {
+        exclude group: 'com.facebook.stetho', module: 'stetho'
+        exclude group: 'com.squareup.okhttp3', module: 'okhttp'
+    }
+}

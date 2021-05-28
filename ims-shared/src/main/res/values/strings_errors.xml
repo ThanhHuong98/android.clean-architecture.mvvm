@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="common_error_connect">
+        <![CDATA[It looks like network connection is not working. Please check your connection and try again.]]>
+    </string>
+    <string name="common_error_unknown">
+        <![CDATA[The function is temporary interrupted. Please try again later.]]>
+    </string>
+</resources>

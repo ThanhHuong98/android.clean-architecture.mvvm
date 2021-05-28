@@ -1,0 +1,144 @@
+android {
+
+    compileSdkVersion build_versions.target_sdk
+
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        resConfigs "en", "vi"
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+            minifyEnabled false
+        }
+    }
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+    compileOptions {
+        encoding "UTF-8"
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    lintOptions {
+        abortOnError true
+    }
+    // For kotlin debug
+    kapt {
+        javacOptions {
+            option("-Xmaxerrs", 2000)
+        }
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+    dexOptions {
+        javaMaxHeapSize "2048M"
+        jumboMode true
+        preDexLibraries false
+    }
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
+    packagingOptions {
+        // Avoiding including the debug infrastructure in the resulting APK (coroutines)
+        exclude "DebugProbesKt.bin"
+    }
+}
+
+dependencies {
+
+    // Android X
+    implementation deps.constraintlayout
+    implementation deps.support.material
+    implementation deps.support.swipelayout
+    implementation deps.support.app_compat
+    implementation deps.support.fragment_ktx
+
+    //data-store
+    // implementation deps.datastore.rxjava2
+    // implementation deps.datastore.preferences
+
+    // Kotlin
+    api deps.kotlin.stdlib
+    api(deps.support.core_ktx) {
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib'
+        exclude group: 'androidx.annotation', module: 'annotation'
+        exclude group: 'androidx.core', module: 'core'
+    }
+
+    // Navigation
+    implementation deps.navigation.fragment_ktx
+    implementation deps.navigation.runtime_ktx
+    implementation(deps.navigation.ui_ktx) {
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib'
+    }
+    implementation deps.arch_core.runtime
+
+    // androidx.paging
+    api deps.paging_ktx
+    api deps.paging_common
+    api deps.paging_rxjava2
+
+    // Lifecycle
+    api deps.lifecycle.runtime
+    api(deps.lifecycle.extensions) {
+        exclude group: 'androidx.lifecycle', module: 'lifecycle-runtime'
+        exclude group: 'androidx.arch.core', module: 'core-common'
+        exclude group: 'androidx.fragment', module: 'fragment'
+        exclude group: 'androidx.arch.core', module: 'core-runtime'
+    }
+    api deps.lifecycle.reactivestreams
+    api deps.lifecycle.java8
+    api deps.lifecycle.viewmodel_ktx
+    api deps.lifecycle.livedata_ktx
+
+    api deps.jakewharton.rxbinding3
+    api deps.preference.ktx
+
+    // IMAGE LOADING: Glide lib for image loading
+    api deps.glide.runtime
+    kapt deps.glide.compiler
+
+    // coroutines
+    api deps.coroutines.core
+    api deps.coroutines.rx2
+    api deps.coroutines.android
+
+    // LOGGER: Timber
+    api deps.timber
+
+    implementation "com.google.android.play:core:1.10.0"
+
+    // Work manager
+    api(deps.work.runtime_ktx) {
+        exclude group: 'com.google.guava', module: 'listenablefuture'
+    }
+
+    api deps.jakewharton.threetenabp
+
+    // Multi dex
+    api deps.multidex
+
+    // Permissions
+    api(deps.permissionsdispatcher) {
+        exclude group: 'androidx.core', module: 'core'
+        exclude group: 'androidx.fragment', module: 'fragment'
+        exclude group: 'androidx.collection', module: 'collection'
+    }
+    kapt deps.permissionsdispatcher_processor
+    // Shimmer loading
+    api 'com.facebook.shimmer:shimmer:0.5.0'
+    api 'androidx.recyclerview:recyclerview:1.2.0'
+    api 'com.uber.rxdogtag:rxdogtag:1.0.1'
+}

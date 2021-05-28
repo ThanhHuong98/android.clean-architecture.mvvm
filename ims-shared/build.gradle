@@ -1,0 +1,16 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+}
+
+apply from: './deps/test_dependencies.gradle'
+apply from: './deps/shared_dependencies.gradle'
+apply from: './deps/dagger_dependencies.gradle'
+apply from: './deps/network_dependencies.gradle'
+apply from: './deps/google_dependencies.gradle'
+apply from: './deps/animation_dependencies.gradle'
+apply from: './deps/room_dependencies.gradle'
+apply from: './deps/iap_dependencies.gradle'
+apply from: './publish.gradle'

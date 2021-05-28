@@ -1,0 +1,10 @@
+dependencies {
+
+    // Zxing
+    implementation 'com.google.zxing:core:3.4.1'
+
+    // Firebase ML Kit dependencies
+    implementation 'com.google.firebase:firebase-ml-vision:24.1.0'
+    implementation 'com.google.android.gms:play-services-vision:20.1.3'
+    implementation 'com.google.mlkit:barcode-scanning:16.1.1'
+}

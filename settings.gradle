@@ -1,0 +1,3 @@
+rootProject.name = "ims-shared"
+include ':ims-shared'
+include ':app'

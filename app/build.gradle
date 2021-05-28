@@ -1,0 +1,71 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-allopen'
+    id 'kotlin-parcelize'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+//
+apply from: '../artifacts.gradle'
+apply from: '../package_dependencies.gradle'
+
+android {
+
+    compileSdkVersion build_versions.target_sdk
+
+    defaultConfig {
+        applicationId "com.imstudio.app"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode project.hasProperty('versionCode') ? project.property('versionCode') as int : 3
+        versionName project.hasProperty('versionName') ? project.property('versionName') : "1.0.0"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    signingConfigs {
+        release {
+            keyAlias KEY_ALIAS
+            keyPassword KEYSTORE_PASSWORD
+            storeFile file(KEY_FILE)
+            storePassword KEYSTORE_PASSWORD
+        }
+        debug {
+            keyAlias KEY_ALIAS_DEBUG
+            keyPassword KEYSTORE_PASSWORD_DEBUG
+            storeFile file(KEY_FILE_DEBUG)
+            storePassword KEYSTORE_PASSWORD_DEBUG
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            debuggable true
+            manifestPlaceholders = [crashlyticsEnabled: true, analyticsEnabled: true]
+            resValue("string", "app_name", "CyberU")
+        }
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+            manifestPlaceholders = [crashlyticsEnabled: false, analyticsEnabled: false]
+            debuggable true
+            resValue("string", "app_name", "CyberU DEV")
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+}
