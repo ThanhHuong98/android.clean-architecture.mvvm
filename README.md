@@ -25,8 +25,6 @@
 - [Common Scripts](#scripts)
 - [Technical Stack](#technical-stack)
 - [Dependencies](#dependencies)
-- [WalletSDK](#dependencies)
-- [Modules](#modules)
 - [Library](#library)
 - [Architecture](#architecture)
 - [Case Study](#case-study)
