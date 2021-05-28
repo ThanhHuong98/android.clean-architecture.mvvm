@@ -24,7 +24,8 @@
 
         <activity
             android:name="com.imstudio.app.screens.activities.MainActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/IMS.Theme">
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

@@ -6,9 +6,12 @@
     android:orientation="vertical">
 
     <com.imstudio.android.shared.screens.widgets.SharedToolBar
+        android:id="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:core_background="@color/colorPrimaryDark" />
+        app:core_background="@color/colorPrimary"
+        app:core_drawableLeft="@drawable/ic_vector_back"
+        app:core_title="@string/app_name" />
 
     <LinearLayout
         android:layout_width="match_parent"

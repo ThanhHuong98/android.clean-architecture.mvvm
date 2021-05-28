@@ -23,6 +23,7 @@ class MainActivity : DaggerViewBindingActivity<ActivityMainBinding>() {
         binding.buttonWelcome.safeClick {
             browse("https://imstudio.medium.com/")
         }
+        binding.toolBar.onLeftClickListener(::finish)
     }
 
 }
