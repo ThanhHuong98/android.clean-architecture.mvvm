@@ -7,7 +7,6 @@
 package com.imstudio.android.shared.common.functional
 
 import android.view.LayoutInflater
-import android.view.ViewGroup
 
 typealias unit<T> = (T) -> Unit
 
@@ -38,4 +37,6 @@ fun <T> tryOrNull(provider: Provider<T>) = try {
     null
 }
 
-typealias BindingInflater<VB> = (LayoutInflater, ViewGroup?, Boolean) -> VB
+typealias BindingInflater<VB> = Transformer<LayoutInflater, VB>
+
+// typealias BindingInflater<VB> = (LayoutInflater, ViewGroup?, Boolean) -> VB

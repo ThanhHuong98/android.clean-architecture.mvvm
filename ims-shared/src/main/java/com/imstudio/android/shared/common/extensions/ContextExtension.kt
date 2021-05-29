@@ -14,6 +14,7 @@ import android.content.Intent
 import android.content.res.TypedArray
 import android.net.Uri
 import android.util.AttributeSet
+import android.widget.Toast
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
@@ -89,4 +90,20 @@ fun Context.browse(url: String, newTask: Boolean = false): Boolean {
         e.printStackTrace()
         false
     }
+}
+
+fun Context.toast(message: String) {
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+}
+
+fun Context.toast(resId: Int) {
+    Toast.makeText(this, resId, Toast.LENGTH_SHORT).show()
+}
+
+fun Context.longToast(message: String) {
+    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+}
+
+fun Context.longToast(resId: Int) {
+    Toast.makeText(this, resId, Toast.LENGTH_LONG).show()
 }

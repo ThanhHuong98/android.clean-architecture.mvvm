@@ -1,23 +1,23 @@
 dependencies {
 
     // Google
-    implementation 'com.google.android.gms:play-services-auth:19.0.0'
-    implementation 'com.google.android.gms:play-services-location:18.0.0'
+    api 'com.google.android.gms:play-services-auth:19.0.0'
+    api 'com.google.android.gms:play-services-location:18.0.0'
 
     // FireBase
-    implementation 'com.google.firebase:firebase-messaging-ktx:22.0.0'
+    api 'com.google.firebase:firebase-messaging-ktx:22.0.0'
 
     // FireBase Remote Config
-    implementation 'com.google.firebase:firebase-config-ktx:21.0.0'
+    api 'com.google.firebase:firebase-config-ktx:21.0.0'
 
     // Firebase analytics
-    implementation 'com.google.firebase:firebase-analytics-ktx:19.0.0'
+    api 'com.google.firebase:firebase-analytics-ktx:19.0.0'
 
-    implementation 'com.google.firebase:firebase-dynamic-links-ktx:20.0.0'
+    api 'com.google.firebase:firebase-dynamic-links-ktx:20.0.0'
 
     // Google Play
-    implementation group: 'com.google.android.play', name: 'core-ktx', version: '1.8.1'
+    api group: 'com.google.android.play', name: 'core-ktx', version: '1.8.1'
 
     // Firebase Crashlytics SDK.
-    implementation 'com.google.firebase:firebase-crashlytics-ktx:18.0.0'
+    api 'com.google.firebase:firebase-crashlytics-ktx:18.0.0'
 }

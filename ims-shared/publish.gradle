@@ -2,7 +2,7 @@ apply plugin: 'maven-publish'
 
 def LIB_GROUP_ID = 'me.imstudio.android'
 def LIB_ARTIFACT_ID = 'shared'
-def LIB_VERSION = '1.0.0-alpha01'
+def LIB_VERSION = '1.0.0-alpha06'
 
 task sourceJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
@@ -16,8 +16,8 @@ publishing {
             name = "GithubPackages"
             url = uri("https://maven.pkg.github.com/cyberunions/me.imstudio.android")
             credentials {
-                username = "cyberu"
-                password = "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"
+                username = "cyberunion"
+                password = "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"
             }
         }
     }

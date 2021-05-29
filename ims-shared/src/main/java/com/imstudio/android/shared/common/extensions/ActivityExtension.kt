@@ -26,22 +26,6 @@ fun Activity.hideKeyboardIfNeed() {
             .hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
 }
 
-fun AppCompatActivity.toast(message: String) {
-    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-}
-
-fun AppCompatActivity.toast(resId: Int) {
-    Toast.makeText(this, resId, Toast.LENGTH_SHORT).show()
-}
-
-fun AppCompatActivity.longToast(message: String) {
-    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
-}
-
-fun AppCompatActivity.longToast(resId: Int) {
-    Toast.makeText(this, resId, Toast.LENGTH_LONG).show()
-}
-
 // Use for activity data binding
 fun <T : ViewDataBinding> activityBinding(@LayoutRes resId: Int) =
     ActivityBindingProperty<T>(
