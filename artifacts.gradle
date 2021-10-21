@@ -3,6 +3,6 @@ android.applicationVariants.all { variant ->
         def flavor = variant.name
         def versionName = variant.versionName
         def date = new Date().format("yyyyMMdd_HHmmssSSS")
-        outputFileName = "IMSStudo${flavor}_${versionName}_${versionCode}_${date}.apk"
+        outputFileName = "Ims.MVVM${flavor}_${versionName}_${versionCode}_${date}.apk"
     }
 }

@@ -138,145 +138,6 @@ task clean(type: Delete) {
 
 </details>
 
-## 🌈 Coding guidelines
-### Note when work with ``` ViewBinding ```
- - ☠️ -- In ViewBinding, every XML layout file in a module gets a corresponding generated binding class, whose name is in Pascal Case format, with the word Binding appended at the end and implements ViewBinding interface.
- - ☠️ -- Files are generated into Java not Kotlin, reason for that would be discussed later, but it has nothing todo with interops between Java-Kotlin
-
- - ☠️ -- Generated for <Include>: <include> tag needs to have an id: android:id="@+id/includes". This is required for View binding to generate the binding class like normal layout.
-
- ```XML
-    // file name : profile_layout.xml
-    <FrameLayout ... >
-        <TextView android:id="@+id/text_name" ... />
-
-        <!-- include layout example -->
-        <include
-        android:id="@+id/includes"
-        layout="@layout/included_layout" />
-
-    </FrameLayout>
-
-    // file name : included_layout.xml
-    <LinearLayout ... >
-        <TextView android:id="@+id/text_demo1" ... />
-    </LinearLayout>
- ```
- - ☠️ -- Generated for <merge>: <merge> tag, the system ignores the <merge> element and its child views directly added into the layout, in place of the <include/> tag.
-
- ```XML
-    // file name : profile_layout.xml
-    <FrameLayout ... >
-        <TextView android:id="@+id/text_name" ... />
-
-        <!-- include layout example -->
-        <include
-        android:id="@+id/merges" [❌ wrong!]
-        layout="@layout/merged_layout" />
-
-        <!-- merge layout example -->
-        <include layout="@layout/merged_layout" /> [✅]
-
-    </FrameLayout>
-
-
-    // file name : merged_layout.xml
-    <merge ... >
-        <TextView android:id="@+id/text_demo2" ... />
-    </merge>
- ```
-
-Even if you try to provide an ID to the included layout with merge tag, it will generate the rootView inside the binding class, but on runtime it will crash the app, with missing id exception, this behaviour is obvious as findViewById cannot get the root view of the merged layout as it has been flatten out by the system to be included inside the parent layout.
-
--  ☠️ -- Ignore view from generation
-```XML
-    <LinearLayout
-            ...
-            tools:viewBindingIgnore="true" >
-            ...
-    </LinearLayout>
-```
-✅ Create new Activity (with/without Dagger) use ViewBinding:  ViewBindingActivity / DaggerViewBindingActivity
-
-```kotlin
-
-    // Without Dagger
-   class ExampleActivity : ViewBindingActivity<ActivityExampleBinding>()
-    // With Dagger
-   class ExampleActivity : DaggerViewBindingActivity<ActivityExampleBinding>()
-
-```
-
-✅ Create new Activity (with/without Dagger) use DataBinding: DataBindingActivity / DaggerDataBindingActivity
-
-```kotlin
-
-    // Without Dagger
-   class ExampleActivity : DataBindingActivity<ActivityExampleBinding>(R.layout.activity_example)
-
-    // With Dagger
-   class ExampleActivity : DaggerDataBindingActivity<ActivityExampleBinding>(R.layout.activity_example)
-
-```
-
-✅ Create new Fragment (with/without Dagger) use ViewBinding:  ViewBindingFragment / DaggerViewBindingFragment
-
-```kotlin
-
-    // Without Dagger
-    class ExampleFragment : ViewBindingFragment<FragmentExampleBinding>
-
-    // With Dagger
-    class ExampleFragment : DaggerViewBindingFragment<FragmentExampleBinding>
-
-```
-
-✅ Create new Fragment (with/without Dagger) use DataBinding: DataBindingFragment / DaggerDataBindingFragment
-
-```kotlin
-
-    // Without Dagger
-    class ExampleFragment : DataBindingFragment<FragmentExampleBinding>(R.layout.fragment_example)
-
-    // With Dagger
-    class ExampleFragment : DaggerDataBindingFragment<FragmentExampleBinding>(R.layout.fragment_example)
-
-
-```
-
-✅ Create new BottomSheetDialogFragment (with/without Dagger) use ViewBinding: ViewBindingBSDF
-
-```kotlin
-
-class ExampleDialogBSDF : ViewBindingBSDF<DialogExampleBinding>() {
-
-    override val bindingInflater: Transformer<LayoutInflater, DialogExampleBinding>
-        get() = DialogExampleBinding::inflate
-
-}
-```
-
-✅ Create new BottomSheetDialogFragment (with/without Dagger) use DataBinding: DataBindingBSDF
-
-```kotlin
-
-class ExampleDialogBSDF : DataBindingBSDF<DialogExampleBinding>(R.layout.fragment_example) {
-
-}
-```
-
-✅ Create new DialogFragment (with/without Dagger) use ViewBinding: ViewBindingDF
-
-```kotlin
-
-class ExampleDialogBSDF : ViewBindingDialogFragment<DialogExampleBinding>() {
-
-    override val bindingInflater: Transformer<LayoutInflater, DialogExampleBinding>
-        get() = DialogExampleBinding::inflate
-
-}
-
-```
 ## 🌈 Technical Stack
 
 This project takes advantage of many popular libraries, plugins and tools of the Android ecosystem. Most of the libraries are in the stable version, unless there is a good reason to use non-stable dependency.
@@ -289,7 +150,7 @@ We used a Repository layer for handling data operations. FUTA's data comes from 
 
 ### Kotlin
 
-[![made-with-Kotlin](https://img.shields.io/badge/Made%20with-Kotlin.v1.4.31-1f425f.svg)](https://kotlinlang.org/)
+[![made-with-Kotlin](https://img.shields.io/badge/Made%20with-Kotlin.v1.5.31-1f425f.svg)](https://kotlinlang.org/)
 
 We made an early decision to rewrite the app from scratch to bring it in line with our thinking about modern Android architecture. Using Kotlin for the rewrite was an easy choice: we liked Kotlin's expressive, concise, and powerful syntax; we found that Kotlin's support for safety features for nullability and immutability made our code more resilient; and we leveraged the enhanced functionality provided by Android Ktx extensions.
 
@@ -319,3 +180,5 @@ We made an early decision to rewrite the app from scratch to bring it in line wi
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
 
 ## 🚀Authors
+
+https://github.com/nphau

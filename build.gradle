@@ -3,7 +3,7 @@ buildscript {
     apply from: 'ims-shared/deps/versions.gradle'
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath deps.gradle.tools
