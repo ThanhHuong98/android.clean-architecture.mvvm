@@ -1,3 +1,3 @@
-rootProject.name = "me.imstudio.android"
-include ':ims-shared'
+rootProject.name = "android.architecture.mvvm"
+include ':mvvm-dagger'
 include ':app'

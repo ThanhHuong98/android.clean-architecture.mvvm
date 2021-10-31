@@ -2,7 +2,7 @@
 
 <p align="center">
 <a>
-    <img src="https://img.shields.io/badge/kotlin-v1.4.32-blue.svg">
+    <img src="https://img.shields.io/badge/kotlin-v1.5.31-blue.svg">
     <img src="https://img.shields.io/badge/gradle-6.5-blueviolet.svg">
     <img src="https://img.shields.io/badge/API-21%2B-blue.svg?style=flat">
     <img src="https://img.shields.io/badge/License-Apache%202.0-success.svg">
@@ -174,7 +174,12 @@ We made an early decision to rewrite the app from scratch to bring it in line wi
 - [Shimmer](https://github.com/facebook/shimmer-android) - Shimmer is an Android library that provides an easy way to add a shimmer effect to any view in your Android app.
 - [Glide](https://github.com/bumptech/glide) - Glide is a fast and efficient open source media management and image loading framework for Android that wraps media decoding, memory and disk caching, and resource pooling into a simple and easy to use interface.
 
-## ⚙️ Modules
+## ⚙️ Copyright
+```
+Created by $username on $today
+Copyright (c) $today.year . All rights reserved.
+Last modified $file.lastModified
+```
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
@@ -182,3 +187,4 @@ We made an early decision to rewrite the app from scratch to bring it in line wi
 ## 🚀Authors
 
 https://github.com/nphau
+https://nphau.medium.com

@@ -15,7 +15,7 @@ android {
     compileSdkVersion build_versions.target_sdk
 
     defaultConfig {
-        applicationId "com.imstudio.app"
+        applicationId "com.nphau.app"
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
         versionCode project.hasProperty('versionCode') ? project.property('versionCode') as int : 1
@@ -46,14 +46,14 @@ android {
             signingConfig signingConfigs.release
             debuggable true
             manifestPlaceholders = [crashlyticsEnabled: true, analyticsEnabled: true]
-            resValue("string", "app_name", "Ims.MVVM")
+            resValue("string", "app_name", "MVVM")
         }
         debug {
             minifyEnabled false
             signingConfig signingConfigs.debug
             manifestPlaceholders = [crashlyticsEnabled: false, analyticsEnabled: false]
             debuggable true
-            resValue("string", "app_name", "Ims.MVVM DEV")
+            resValue("string", "app_name", "DEV.MVVM")
         }
     }
 

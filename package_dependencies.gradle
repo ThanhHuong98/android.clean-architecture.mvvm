@@ -1,11 +1,10 @@
-apply from: '../ims-shared/deps/shared_dependencies.gradle'
-apply from: '../ims-shared/deps/dagger_dependencies.gradle'
-apply from: '../ims-shared/deps/test_dependencies.gradle'
-apply from: '../ims-shared/deps/network_dependencies.gradle'
-apply from: '../ims-shared/deps/google_dependencies.gradle'
-apply from: '../ims-shared/deps/iap_dependencies.gradle'
+apply from: '../mvvm-dagger/deps/shared_dependencies.gradle'
+apply from: '../mvvm-dagger/deps/dagger_dependencies.gradle'
+apply from: '../mvvm-dagger/deps/test_dependencies.gradle'
+apply from: '../mvvm-dagger/deps/network_dependencies.gradle'
+apply from: '../mvvm-dagger/deps/google_dependencies.gradle'
+apply from: '../mvvm-dagger/deps/iap_dependencies.gradle'
 
 dependencies {
-    // implementation 'me.imstudio.android:shared:1.0.0-alpha02'
-    implementation project(path: ':ims-shared')
+    implementation project(path: ':mvvm-dagger')
 }

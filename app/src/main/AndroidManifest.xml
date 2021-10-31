@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.imstudio.app">
+    package="com.nphau.app">
 
     <application
-        android:name="com.imstudio.app.IMSApp"
+        android:name="com.nphau.app.AppLauncher"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,8 +23,8 @@
             android:value="${analyticsEnabled}" />
 
         <activity
-            android:name="com.imstudio.app.screens.activities.MainActivity"
-            android:screenOrientation="portrait"
+            android:name=".screens.MainActivity"
+            android:screenOrientation="fullSensor"
             android:theme="@style/IMS.Theme">
 
             <intent-filter>
@@ -37,7 +37,7 @@
 
         <activity-alias
             android:name="${applicationId}.Launcher"
-            android:targetActivity="com.imstudio.app.screens.activities.MainActivity">
+            android:targetActivity=".screens.MainActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
